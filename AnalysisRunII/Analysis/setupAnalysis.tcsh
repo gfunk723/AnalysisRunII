@@ -7,5 +7,6 @@ git clone https://github.com/CMS-HTT/CorrectionsWorkspace.git
 cd CorrectionsWorkspace
 git submodule update --init
 python makeCorrectionsWorkspace.py
+cp CrystalBallEfficiency_cxx.so ../
 cd -
 
