@@ -3,8 +3,8 @@ cd HTT-utilities/LepEffInterface
 git clone https://github.com/CMS-HTT/LeptonEfficiencies.git data
 cd ..
 git clone https://github.com/CMS-HTT/QCDModelingEMu.git QCDModelingEMu
-cp QCDModelingEMu/QCD_weights_emu.root $CMSSW_BASE/src
-cp QCDModelingEMu/QCD_weight_emu_nodzeta.root $CMSSW_BASE/src
+cp QCDModelingEMu/data/QCD_weight_emu.root $CMSSW_BASE/src
+cp QCDModelingEMu/data/QCD_weight_emu_nodzeta.root $CMSSW_BASE/src
 cd ..
 
 git clone https://github.com/CMS-HTT/CorrectionsWorkspace.git
