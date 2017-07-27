@@ -1,9 +1,0 @@
-[submodule "inputs/LeptonEfficiencies"]
-	path = inputs/LeptonEfficiencies
-	url = https://github.com/CMS-HTT/LeptonEfficiencies.git
-[submodule "inputs/triggerSF"]
-	path = inputs/triggerSF
-	url = https://github.com/rmanzoni/triggerSF.git
-[submodule "inputs/triggerSF-Moriond17"]
-	path = inputs/triggerSF-Moriond17
-	url = https://github.com/rmanzoni/triggerSF.git
