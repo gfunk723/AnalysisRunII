@@ -42,10 +42,10 @@ generateH2TauSyncTree::generateH2TauSyncTree(FlatTreeReader R_, bool run_, std::
 
 	/* init qcd weight tool */
 	// with DZeta cut ->
-	qcdWeights = new QCDModelForEMu("QCD_weight_emu.root");
+	//qcdWeights = new QCDModelForEMu("QCD_weight_emu.root");
 
 	// w/o DZeta cut ->
-	qcdWeightsNoDZeta = new QCDModelForEMu("QCD_weight_emu_nodzeta.root");
+	//qcdWeightsNoDZeta = new QCDModelForEMu("QCD_weight_emu_nodzeta.root");
 
 	/* init HTT lepton sf tool */
 
@@ -990,7 +990,7 @@ void generateH2TauSyncTree::handleEvent()
 
 	/* met-related branches */
 	mvamet				= mvaMetVec.Pt();
-	mvametphi			= mvaMetVec.Phi();;
+	mvametphi			= mvaMetVec.Phi();
 	met					= pfMetVec.Pt();
 	metphi				= pfMetVec.Phi();
 	puppimet			= puppiMetVec.Pt();
@@ -1674,6 +1674,7 @@ void generateH2TauSyncTree::handleEvent()
     else {pairGoodForTrigger = 0;}
     
     //Use instead of above elseif IF not using MC triggers in Di-Tau
+    
     /*
     if(R.getI("CandidateEventType")==6)
     {
@@ -3300,11 +3301,11 @@ void generateH2TauSyncTree::handleEvent()
     
     //bool AbrevCutsMT = (passFilters && pt_1 > 26. && pt_2_TESDown > 20. && DeltaR_leg1_leg2 > 0.3 && DeltaR_leg1_leg2 < 2.0 && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && iso_1 < 0.15 && againstElectronVLooseMVA6_2 > 0.5 && againstMuonTight3_2 > 0.5 && (byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5 || byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5) && decayModeFinding_2 > 0.5 );
     
-    bool AbrevCutsTT = (passFilters && pt_1 > 40. && pt_2 > 40. && DeltaR_leg1_leg2 > 0.3 && DeltaR_leg1_leg2 < 2.0  && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && againstElectronVLooseMVA6_1 > 0.5 && againstMuonLoose3_1 > 0.5 && againstElectronVLooseMVA6_2 > 0.5 && againstMuonLoose3_2 > 0.5 && decayModeFinding_1 > 0.5 && decayModeFinding_2 > 0.5 && ((byLooseIsolationMVArun2v1DBdR03oldDMwLT_1 > 0.5 && byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5) || (byLooseIsolationMVArun2v1DBoldDMwLT_1 > 0.5 && byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5)));
+    bool AbrevCutsTT = (passFilters && pt_1 > 40. && pt_2 > 40. && DeltaR_leg1_leg2 > 0.3  && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && againstElectronVLooseMVA6_1 > 0.5 && againstMuonLoose3_1 > 0.5 && againstElectronVLooseMVA6_2 > 0.5 && againstMuonLoose3_2 > 0.5 && decayModeFinding_1 > 0.5 && decayModeFinding_2 > 0.5 && ((byLooseIsolationMVArun2v1DBdR03oldDMwLT_1 > 0.5 && byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5) || (byLooseIsolationMVArun2v1DBoldDMwLT_1 > 0.5 && byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5)));
     
-    bool AbrevCutsET = (passFilters && pt_1 > 26. && pt_2 > 20. && DeltaR_leg1_leg2 > 0.3 && DeltaR_leg1_leg2 < 2.0 && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && iso_1 < 0.3 && againstElectronTightMVA6_2 > 0.5 && againstMuonLoose3_2 > 0.5 && (byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5 || byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5) && decayModeFinding_2 > 0.5);
+    bool AbrevCutsET = (passFilters && pt_1 > 26. && pt_2 > 20. && DeltaR_leg1_leg2 > 0.3 && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && iso_1 < 0.3 && againstElectronTightMVA6_2 > 0.5 && againstMuonLoose3_2 > 0.5 && (byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5 || byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5) && decayModeFinding_2 > 0.5);
     
-    bool AbrevCutsMT = (passFilters && pt_1 > 26. && pt_2 > 20. && DeltaR_leg1_leg2 > 0.3 && DeltaR_leg1_leg2 < 2.0 && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && iso_1 < 0.25 && againstElectronVLooseMVA6_2 > 0.5 && againstMuonTight3_2 > 0.5 && (byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5 || byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5) && decayModeFinding_2 > 0.5 );
+    bool AbrevCutsMT = (passFilters && pt_1 > 26. && pt_2 > 20. && DeltaR_leg1_leg2 > 0.3 && pairGoodForTrigger==1 && extramuon_veto==0  && extraelec_veto==0 && iso_1 < 0.3 && againstElectronVLooseMVA6_2 > 0.5 && againstMuonTight3_2 > 0.5 && (byLooseIsolationMVArun2v1DBdR03oldDMwLT_2 > 0.5 || byLooseIsolationMVArun2v1DBoldDMwLT_2 > 0.5) && decayModeFinding_2 > 0.5 );
 
 	if(AbrevCutsET && R.getI("CandidateEventType")==3) {num_et++; tree_EleTau->Fill();}
 	else if(R.getI("CandidateEventType")==2) {num_em++; tree_EleMu->Fill();}
@@ -3317,7 +3318,6 @@ void generateH2TauSyncTree::handleEvent()
 	 std::cout<<" tt = "<<num_tt<<"\n";
 	 std::cout<<" em = "<<num_em<<"\n";
 	}
-
 
 }
 
@@ -6037,8 +6037,8 @@ void generateH2TauSyncTree::fillJetBranches(bool eventHasNominalLeptonEnergyScal
  		if( fabs(jets_eta[i]) < 4.7 && jets_pt[i] > 30)  jetDesc.m_njets++;		
 		if( fabs(jets_eta[i]) < 4.7 && jets_pt[i] > 20)  jetDesc.m_njetspt20++;
 
-
- 		if( fabs(jets_eta[i]) < 2.4 && jets_pt[i] > 20) 
+        // bjets at pt 30 for monohiggs
+ 		if( fabs(jets_eta[i]) < 2.4 && jets_pt[i] > 30)
  		{	
  			if( eventHasNominalLeptonEnergyScales || variantString=="" )
  			{
@@ -6241,6 +6241,8 @@ double generateH2TauSyncTree::getFinalWeight(bool verbose_, TLorentzVector l1, T
     
     returnWeight_ *= getZReWeight(verbose_);
     
+    returnWeight_ *= getWWFactor(0);
+    
     returnWeight_ *= getZZFactor(0);
     
 	/* include susy ggH NLO weight (1.0 for non valid samples ) 
@@ -6367,7 +6369,6 @@ double generateH2TauSyncTree::getNominalWeight(bool verbose_)
     }
 
     /* Stitch with negative weight sums */
-    
     else if (R.getS("KeyName") == "WWTo1L1Nu2Q")
     {
         stitch = 1.0;
@@ -6422,6 +6423,38 @@ double generateH2TauSyncTree::getNominalWeight(bool verbose_)
     {
         stitch = 1.0;
         returnWeight_ = (1000.0 * R.getD("CrossSection") * R.getD("generatorEventWeight")) / (3499.44 * R.getD("FilterEff"));
+    }
+    
+    //new
+    else if (R.getS("KeyName") == "TTZToLLNuNu_M-10ext1" ||\
+    R.getS("KeyName") == "TTZToLLNuNu_M-10ext2" ||\
+    R.getS("KeyName") == "TTZToLLNuNu_M-10ext3")
+    {
+        stitch = 1.0;
+        returnWeight_ = (1000.0 * R.getD("CrossSection") * R.getD("generatorEventWeight")) / ( 3511199.52 * R.getD("FilterEff"));
+    }
+    else if (R.getS("KeyName") == "TTWJetsToLNu")
+    {
+        stitch = 1.0;
+        returnWeight_ = (1000.0 * R.getD("CrossSection") * R.getD("generatorEventWeight")) / ( 731877.67 * R.getD("FilterEff"));
+    }
+    else if (R.getS("KeyName") == "ttHJetToNonbb")
+    {
+        stitch = 1.0;
+        returnWeight_ = (1000.0 * R.getD("CrossSection") * R.getD("generatorEventWeight")) / ( 10129526.16 * R.getD("FilterEff"));
+    }
+    else if (R.getS("KeyName") == "WZTo2L2Q")
+    {
+        stitch = 1.0;
+        returnWeight_ = (1000.0 * R.getD("CrossSection") * R.getD("generatorEventWeight")) / ( 234019002.42 * R.getD("FilterEff"));
+    }
+    
+    /* fix wrong XS and stitch*/
+    else if (R.getS("KeyName") == "WWToLNuQQ" ||\
+    R.getS("KeyName") == "WWToLNuQQext1")
+    {
+        stitch = 1.0;
+        returnWeight_ = 0.00484 / (R.getD("FilterEff"));
     }
     
 	/* for other samples return the nominal weight */
@@ -6503,6 +6536,8 @@ double generateH2TauSyncTree::getZReWeight(bool verbose_)
 
 std::vector<double> generateH2TauSyncTree::getHighPtTauUncertainty(bool verbose_)
 {
+
+    // used to be 20% per fraction TeV per leg, now 5% up and 35% down
 	std::vector<double> returnVec_; 
 	returnVec_.clear();
 
@@ -6514,28 +6549,25 @@ std::vector<double> generateH2TauSyncTree::getHighPtTauUncertainty(bool verbose_
 	/* leg1 */
 	if(R.getI("leg1_leptonType") == 3 && R.getI("leg1_MCMatchType")==5)
 	{
-		unc1 = 0.2 * R.getD("leg1_genMCmatch_pt")/1000.0;
+		unc1 = R.getD("leg1_genMCmatch_pt")/1000.0;
 		if(verbose_) std::cout<<" applying high pt tau eff unc. to leg1 \n";
-
 	}
 
 	/* leg2 */
 	if(R.getI("leg2_leptonType") == 3 && R.getI("leg2_MCMatchType")==5)
 	{
-
-		unc2 = 0.2 * R.getD("leg2_genMCmatch_pt")/1000.0;
+		unc2 = R.getD("leg2_genMCmatch_pt")/1000.0;
 		if(verbose_) std::cout<<" applying high pt tau eff unc. to leg2 \n";
-
 	}
 
 	/* if MC compute the uncertainty */
 	if(R.getB("isRealData") == 0)
 	{
 		/* get the up shift */
-		eff1 = 1 + (unc1 + unc2);
+		eff1 = 1 + 0.05*(unc1 + unc2);
 
 		/* get the down shift */
-		eff2 = 1 - (unc1 + unc2);
+		eff2 = 1 - 0.35*(unc1 + unc2);
 	}
 
 	returnVec_.clear();
@@ -6701,12 +6733,14 @@ std::vector<double> generateH2TauSyncTree::getQCDWeightForEleMuChannel(bool verb
 	if(R.getI("leg2_leptonType")!=2 && R.getI("leg1_leptonType") == 2)  pt_m = l1.Pt();
 
 
-	double qcdweight = qcdWeights->getWeight(pt_e,pt_m,dR);
+	//double qcdweight = qcdWeights->getWeight(pt_e,pt_m,dR);
+    double qcdweight = 1.0;
 
 	// accessing OS/SS extrapolation factor corresponding
 	// to +1sigma systematic variation of QCD background shape
 
-	double qcdweightup = qcdWeights->getWeightUp(pt_e,pt_m,dR);
+	//double qcdweightup = qcdWeights->getWeightUp(pt_e,pt_m,dR);
+    double qcdweightup = 1.0;
 
 	// We suggest to compute OS/SS extrapolation factor
 	// corresponding to the -1sigma systematic variation
@@ -6715,12 +6749,14 @@ std::vector<double> generateH2TauSyncTree::getQCDWeightForEleMuChannel(bool verb
 	double qcdweightdown = 1; 
 	if(qcdweightup != 0) qcdweightdown = qcdweight * qcdweight / qcdweightup;
 
-	double qcdweightNoDZeta = qcdWeightsNoDZeta->getWeight(pt_e,pt_m,dR);
+	//double qcdweightNoDZeta = qcdWeightsNoDZeta->getWeight(pt_e,pt_m,dR);
+    double qcdweightNoDZeta = 1.0;
 
 	// accessing OS/SS extrapolation factor corresponding
 	// to +1sigma systematic variation of QCD background shape
 
-	double qcdweightupNoDZeta = qcdWeightsNoDZeta->getWeightUp(pt_e,pt_m,dR);
+	//double qcdweightupNoDZeta = qcdWeightsNoDZeta->getWeightUp(pt_e,pt_m,dR);
+    double qcdweightupNoDZeta = 1.0;
 
 	// We suggest to compute OS/SS extrapolation factor
 	// corresponding to the -1sigma systematic variation
@@ -6878,15 +6914,15 @@ double generateH2TauSyncTree::getWWFactor(bool verbose_)
 {
     double returnWeight_ = 1.0;
     
-    if(R.getS("KeyName") == "WWTo2L2Nu")
+    if(R.getS("KeyName") == "WWTo2L2Nu" || R.getS("KeyName") == "WWJJToLNuLNu_EWK_noTop" || R.getS("KeyName") == "WWTo2L2Nu_DoubleScattering" || R.getS("KeyName") == "WpWpJJ_EWK" || R.getS("KeyName") == "WpWpJJ_QCD" || R.getS("KeyName") == "GluGluWWTo2L2Nu")
     {
         double gen_met = R.getD("genMET");
+        if (gen_met < 20.) {gen_met = 21.;}
         double xval = WWcorr->GetXaxis()->FindBin(gen_met);
         double k = WWcorr->GetBinContent(xval);
         if (verbose_) {std::cout << "WW up weight factor: " << k << std::endl;}
         returnWeight_ *= k;
     }
-    
     return returnWeight_;
 }
 
